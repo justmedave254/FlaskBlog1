@@ -22,5 +22,5 @@ SQLAlchemy==2.0.19
 svgwrite==1.4.3
 Tree==0.2.4
 typing_extensions==4.7.1
-Werkzeug==2.3.6
+Werkzeug
 WTForms==3.0.1
