@@ -65,6 +65,7 @@ def login():
             return redirect(url_for('hello_world'))
         else:
             flash('Invalid credentials!', 'danger')
+            return redirect(url_for('login'))
 
     return render_template('login.html')
 
