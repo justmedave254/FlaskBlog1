@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='logsign.css') }}">
+</head>
+
+<body>
+  {% include 'includes/_navbar.html' %}
+
+  <div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+  </div>
+
+  <div class="container1">
+    <div class="form-container">
+      <h2>Login</h2>
+      <form action="#" method="post">
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href={{url_for('register')}}>Register</a></p>
+      <p>Go back to Home Page? <a href={{url_for('hello_world')}}>Home</a></p>
+    </div>
+  </div>
+</body>
+
+</html>

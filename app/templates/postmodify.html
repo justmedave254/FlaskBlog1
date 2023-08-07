@@ -1,0 +1,29 @@
+<div class="container" style="max-width: 800px;
+    margin: 20px auto;
+    background-color: azure;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
+    <article class="media content-section">
+        <h2>Title: {{post.title}}</h2>
+        <div>
+            <img src=" {{ url_for('static', filename='profile_pics/' + post.author.profile_picture) }} "
+                alt="Profile Pic"
+                style="float:left; width:50px; height:50px; border-radius: 50%; object-fit: cover; margin: 0 auto; display: block; border: 5px solid #333;">
+            <span style="vertical-align:bottom; padding:15px; text-align: center; ">Author:
+                {{post.author.username}}</span>
+            <hr>
+        </div>
+        <div>
+            <p>Content: {{post.content}}</p>
+        </div>
+        <small>
+            <p>Date Posted: {{post.date_posted.strftime('%Y-%m-%d')}}</p>
+        </small>
+        {% if post.author == current_user %}
+        <form action="{{url_for('post_delete', post_id=post.id)}}" method="POST">
+            <button type="submit" class="button">Delete Post</button>
+        </form>
+        {% endif %}
+        <hr>
+    </article>
+</div>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="jumbtron text-center">
+    <h1>Welcome To DaveBlog!</h1>
+    <p class="lead"> This is a blog application built on the Python Flask Framework and users can upload articles.</p>
+</div>
+
+<div>
+    {% for post in posts %}
+    <div class="container" style="background-color:azure; border: 5px aquamarine;">
+    <article class="media content-section">
+        <a href="{{url_for('post_modify', post_id=post.id)}}">
+            <h2>Title: {{post.title}}</h2>
+        </a>
+        <div>
+            <img src=" {{ url_for('static', filename='profile_pics/' + post.author.profile_picture) }} "
+                alt="Profile Pic" style="float:left; width:50px; height:50px; border-radius: 50%; object-fit: cover; margin: 0 auto; display: block; border: 5px solid #333;">
+            <span style="vertical-align:bottom; padding:15px; text-align: center; ">Author: {{post.author.username}}</span>
+            <hr>
+        </div>
+        <div>
+            <p>Content: {{post.content}}</p>
+        </div>
+        <small><p>Date Posted: {{post.date_posted.strftime('%Y-%m-%d')}}</p></small>
+        <hr>
+    </article>
+</div>
+<div class="container5"></div>
+    {% endfor %}
+</div>
+{% endblock %}

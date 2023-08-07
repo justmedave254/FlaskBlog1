@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Update Profile</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='logsign.css') }}">
+</head>
+
+<body>
+  {% include 'includes/_navbar.html' %}
+  <div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+  </div>
+
+  <div class="container1">
+    <div class="form-container">
+      <h2>Update Profile</h2>
+      <form action="#" method="post">
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="email" placeholder="Email" name="email" required>
+        
+        <button type="submit">Update</button> 
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profile-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto;
+      display: block;
+      border: 5px solid #333;
+    }
+
+    .profile-info {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .profile-info h2 {
+      margin-bottom: 5px;
+    }
+
+    .profile-info p {
+      color: #666;
+    }
+
+    .profile-description {
+      margin-top: 30px;
+    }
+
+    .profile-description h3 {
+      margin-bottom: 10px;
+    }
+
+    .profile-description p {
+      line-height: 1.6;
+    }
+  </style>
+{% endblock%}
+
+{% block body %}
+<div class="profile-container">
+    <img class="profile-picture" src="{{profile_image}}" alt="Profile Picture">
+
+    <div class="profile-info">
+      <h2>{{ current_user.username }} </h2>
+      <p>{{ current_user.email }}</p>
+    </div>
+
+    <div class="profile-description">
+      <h3>About Me</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at dui quis nunc ultrices aliquam. Vestibulum
+        malesuada lectus eget neque tempor, eget elementum neque faucibus. Nulla facilisi. Aenean posuere elit eget
+        magna convallis, a euismod ipsum luctus.</p>
+    
+        <a href="{{ url_for('updateprofile') }}">
+            <button type="button" class="button">Update Profile</button>
+        </a>
+          
+    </div>
+  </div>
+{% endblock%}
+
+
+
